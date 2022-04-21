@@ -71,6 +71,7 @@ export default function ProductsListPage() {
 }
 
 const Search = styled.div`
+    display: none;
     padding: 50px 20px 20px;
     font-size: 30px;
     letter-spacing: -1px;
@@ -106,7 +107,7 @@ const SearchForm = styled.form`
 
 const ProductsList = styled.div`
     max-width: 1440px;
-    margin: 0 auto 30px;
+    margin: 30px auto 30px;
     padding: 0 5px 0 20px;
 `
 

@@ -1,6 +1,6 @@
 import React from 'react'
 // routing
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 // components
 import HomePage from '@components/homePage/HomePage.js'
 import NewsListPage from '@components/news/NewsListPage.js'
@@ -8,8 +8,10 @@ import NewsPage from '@components/news/elements/NewsPage.js'
 import ProductsListPage from '@components/products/ProductsListPage.js'
 import AboutUs from '@components/aboutUs/AboutUs.js'
 import Contacts from '@components/contacts/Contacts.js'
+import PrivacyPolicy from '@privacyPolicy/PrivacyPolicy.js'
 import Header from '@components/header/Header.js'
 import Footer from '@components/footer/Footer.js'
+import Cookies from '@cookies/Cookies.js'
 // style
 import styled from 'styled-components'
 import 'materialize-css'
@@ -17,7 +19,7 @@ import 'materialize-css'
 export default function App() {
 
     return (
-        <BrowserRouter>
+        <Router>
             <Header />
             <ContentStyled>
                 <Routes>
@@ -27,11 +29,13 @@ export default function App() {
                     <Route exact path="/products" element={<ProductsListPage />} />
                     <Route exact path="/aboutus" element={<AboutUs />} />
                     <Route exact path="/contacts" element={<Contacts />} />
+                    <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </ContentStyled>
             <Footer />
-        </BrowserRouter>
+            <Cookies />
+        </Router>
     );
 }
 

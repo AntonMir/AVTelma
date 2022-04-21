@@ -15,7 +15,10 @@
             "@store/*": ["./src/store"],
             "@config/*": ["./src/config"],
             "@hooks/*": ["./src/hooks"],
-            "@services/*": ["./src/services"]
+            "@services/*": ["./src/services"],
+            "@privacyPolicy/*": ["./src/components/privacyPolicy"],
+            "@cookies/*": ["./src/components/cookies"]
+
         }
     }
 }
