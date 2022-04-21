@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 // castom hook
 import { useHttp } from '@hooks/http.hook.js'
 import { useMessage } from '@hooks/message.hook.js'
+// Link
+import { HashLink } from 'react-router-hash-link'
 // config
 import config from '@config/config.js'
 // anim on scroll
@@ -124,16 +126,11 @@ export default function FeedbackForm() {
                             ? `Повторная отправка будет доступна через ${counter} секунд`
                             : `Resubmitting will be available in ${counter} seconds`}
                     </Timer>
-                    <PrivacyPolicyLink
-                        href={config.appLang === 'EN'
-                            ? "https://avtelma.com/privacy-policy#top"
-                            : "https://avtelma.ru/privacy-policy#top"
-                        }
-                    >
+                    <PrivacyPolicyHashLink to="/privacy-policy#top">
                         {config.appLang === 'RU'
                             ? `Политика конфиденциальности`
                             : `Privacy policy`}
-                    </PrivacyPolicyLink>
+                    </PrivacyPolicyHashLink>
                 </Form>
             </FeedbackFormStyled>
         </FeedbackFormBackground>
@@ -336,7 +333,7 @@ const Timer = styled.p`
     font-size: calc(0.3vw + 10px);
 `
 
-const PrivacyPolicyLink = styled.a`
+const PrivacyPolicyHashLink = styled(HashLink)`
     margin: 0 0 30px 0;
     font-size: calc(0.5vw + 14px);
 `
