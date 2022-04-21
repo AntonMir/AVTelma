@@ -119,11 +119,21 @@ export default function FeedbackForm() {
                     <Button onClick={sendQuestion} disabled={prohibitionSending}>
                         {config.appLang === 'RU' ? 'Отправить' : 'Send'}
                     </Button>
-                    <p style={{ opacity: `${prohibitionSending ? '1' : '0'}` }}>
+                    <Timer style={{ opacity: `${prohibitionSending ? '1' : '0'}` }}>
                         {config.appLang === 'RU'
                             ? `Повторная отправка будет доступна через ${counter} секунд`
                             : `Resubmitting will be available in ${counter} seconds`}
-                    </p>
+                    </Timer>
+                    <PrivacyPolicyLink
+                        href={config.appLang === 'EN'
+                            ? "https://avtelma.com/privacy-policy#top"
+                            : "https://avtelma.ru/privacy-policy#top"
+                        }
+                    >
+                        {config.appLang === 'RU'
+                            ? `Политика конфиденциальности`
+                            : `Privacy policy`}
+                    </PrivacyPolicyLink>
                 </Form>
             </FeedbackFormStyled>
         </FeedbackFormBackground>
@@ -319,4 +329,14 @@ const Button = styled.button`
         padding: 12px 35px 13px;
         font-size: 13px;
     }
+`
+
+const Timer = styled.p`
+    margin: 20px 0 10px;
+    font-size: calc(0.3vw + 10px);
+`
+
+const PrivacyPolicyLink = styled.a`
+    margin: 0 0 30px 0;
+    font-size: calc(0.5vw + 14px);
 `
