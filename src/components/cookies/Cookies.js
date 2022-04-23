@@ -19,7 +19,8 @@ export default function Cookies() {
 
     let showEL = {
         transform: 'translateX(0)',
-        opacity: 1
+        opacity: 1,
+        zIndex: 9999
     }
 
     setTimeout(() => { setLoaded(true) }, 4000)
@@ -61,7 +62,7 @@ const CookiesStyled = styled.div`
     max-width: 400px;
     background-color: rgba(0,146,168, 0.8);
     color: #eee;
-    z-index: 9999;
+    z-index: -9999;
     border-radius: 10px;
     transition: all 0.5s ease 0.1s;
     transform: translateY(-50px);

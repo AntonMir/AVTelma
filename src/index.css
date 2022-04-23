@@ -2,11 +2,10 @@
 
 body {
     margin: 0;
-    font-family: 'PT Sans', sans-serif;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #ddd;
+    /* background-color: #ddd; */
 }
 
 code {

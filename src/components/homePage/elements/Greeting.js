@@ -40,7 +40,11 @@ const GreetingStyled = styled.div`
     width: 100%;
 
     @media (max-width: 600px) {
-        height: 75vh; // ИЗМЕНИТЬ ДО 55, ПОСЛЕ ДОБАВЛЕНИЯ 2-ГО КОМПОНЕНТА
+        height: 75vh;
+    }   
+
+    @media (max-height: 710px) {
+        height: 710px;
     }   
 `
 
@@ -57,6 +61,8 @@ const Background = styled.div`
 `
 
 const Content = styled.div`
+    display: flex;
+    flex-direction: column;
     max-width: 47%;
     margin-top: 76px;
 
@@ -71,13 +77,18 @@ const Content = styled.div`
         max-width: 65%;
     }
     @media (max-width: 600px) {
-        max-width: 80%;
+        max-width: 90%;
     }
 `
 
 const Logo = styled.img`
     width: 100%;
     height: auto;
+
+    @media (max-width: 600px) {
+        width: 90%;
+        margin: 0 auto;
+    }
 `
 
 const Slogan = styled.h1`
@@ -104,15 +115,21 @@ const Description = styled.p`
     @media (min-width: 1920px) {
         font-size: 36px;
     }
+
+    @media (max-width: 600px) {
+        font-size: calc(1.6vw + 16px);
+    }
 `
 
 const Btn = styled.button`
-    padding: calc(0.3vw + 8px) calc(1vw + 18px) calc(0.3vw + 9px);
+    padding: calc(0.6vw + 10px) calc(1.4vw + 22px) calc(0.6vw + 11px);
     font-size: calc(0.5vw + 15px);
     background-color: #13A9D1;
     border: none;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
     color: #fff;
+    align-self: flex-start;
+    margin-top: 10px;
 
     @media (min-width: 1920px) {
         font-size: 23px;
