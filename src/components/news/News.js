@@ -1,11 +1,17 @@
 import { useEffect, useState } from 'react'
 // components
 import ShortNews from '@news/elements/ShortNews.js'
+import Head from '@news/elements/Head.js'
 // img
 import spinner from '@img/global/spinner.svg'
 import search_img from '@img/global/searchImg.png'
 // hooks
 import { useHttp } from '@hooks/http.hook.js'
+// Link
+import { HashLink } from 'react-router-hash-link'
+// img 
+import background from '@img/news/background.webp'
+import arrow from '@img/news/arrow.svg'
 // config
 import config from '@config/config.js'
 // style
@@ -41,7 +47,10 @@ export default function NewsListPage() {
     })
 
     return (
-        <>
+        <NewsWrapper>
+
+            <Head />
+
             <Search>
                 <SearchForm>
                     <input
@@ -68,9 +77,94 @@ export default function NewsListPage() {
             </NewsList>
 
             {!isLoaded && <Spinner><img src={spinner} alt="spinner" /></Spinner>}
-        </>
+        </NewsWrapper>
     );
 }
+
+const NewsWrapper = styled.div`
+
+`
+
+const HeadBackground = styled.div`
+    background-image: url(${background});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+`
+
+const UserPosNav = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: 1.2vw;
+    opacity: 0.7;
+    line-height: 20px;
+
+    font-size: calc(0.6vw + 6px);
+    font-weight: 300;
+
+    @media (min-width: 1920px) {
+        font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: calc(0.8vw + 8px);
+        opacity: 0.9;
+    }
+
+    // path elements
+    > a {
+        text-decoration: none;
+        color: #fff;
+        white-space: nowrap;
+        :hover {
+            text-decoration: underline 1px;
+        }
+    }
+
+    // arrow
+    > img {
+        margin: 0 5px 0 8px;
+        height: 50%;
+        width: auto;
+        @media (max-width: 768px) {
+            height: 30%;
+        }
+    }
+
+    // curent page
+    > h6 {
+        margin: 0;
+        font-weight: 300;
+
+        :hover {
+            cursor: default;
+        }
+
+        @media (min-width: 1920px) {
+            font-size: 18px;
+        }
+    
+        @media (max-width: 768px) {
+            font-size: calc(0.8vw + 8px);
+        }
+    }
+`
+
+const Title = styled.div`
+    font-size: calc(1.9vw + 19px);
+    font-weight: 700;
+    margin: 0 5% 0 0;
+    text-indent: 1.2vw;
+    white-space: nowrap;
+
+    @media (min-width: 1920px) {
+        font-size: 56px;
+    }
+    
+    @media (max-width: 380px) {
+        font-size: calc(1.5vw + 15px);
+    }
+`
 
 const Search = styled.div`
     display: none;

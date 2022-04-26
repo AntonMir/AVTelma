@@ -2,6 +2,7 @@
 //components
 import Greeting from '@homePage/elements/Greeting.js'
 import Products from '@homePage/elements/products/Products.js'
+import Slogan from '@homePage/elements/Slogan.js'
 // img
 // import spinner from '@img/global/spinner.svg'
 // hooks
@@ -23,9 +24,9 @@ export default function HomePage() {
             <Products />
 
             <Anchor id="homePageSlogan" />
-            {/* <Slogan /> */}
+            <Slogan />
 
-            {/* <Anchor id="homePageNews" /> */}
+            <Anchor id="homePageNews" />
             {/* <News /> */}
 
         </HomePageStyled>

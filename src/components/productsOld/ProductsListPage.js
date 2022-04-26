@@ -126,6 +126,5 @@ const Spinner = styled.div`
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: #ccc;
     opacity: 0.9;
 `

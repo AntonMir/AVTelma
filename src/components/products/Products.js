@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 //components
-import ShortProduct from '@homePage/elements/products/ShortProduct/ShortProduct.js'
-import Head from '@homePage/elements/products/Head.js'
+import ShortProduct from '@products/elements/ShortProduct/ShortProduct.js'
+import Head from '@products/elements/Head.js'
 // img 
 import spinner from '@img/global/spinner.svg'
 // hooks
@@ -25,7 +25,7 @@ export default function Products() {
             try {
                 // получаем список продуктов и закидываем в state
                 const data = await request({
-                    url: `${config.serverUrl}/api/products?populate=*&pagination[limit]=2&sort=publishedAt:desc`
+                    url: `${config.serverUrl}/api/products?populate=*&sort=publishedAt:desc`
                 })
                 setProducts(data.data)
             } catch (error) {
@@ -37,10 +37,9 @@ export default function Products() {
 
     return (
         <ProductsWrapper>
-
             <Head />
 
-            <ProductsList style={{ opacity: isLoaded ? 1 : 0 }}>
+            <ProductsList isLoaded={isLoaded}>
                 {(products && products.length > 0) && products.map(product => {
                     return <ShortProduct key={product.id} product={product} />
                 })}
@@ -48,16 +47,19 @@ export default function Products() {
 
             {!isLoaded && <Spinner><img src={spinner} alt="spinner" /></Spinner>}
 
-
-
         </ProductsWrapper>
     );
 }
 
 const ProductsWrapper = styled.div`
-    position: relative;
-    margin: 0 auto calc(1.5vw + 15px);
+   position: relative;
+`
+
+const ProductsList = styled.div`
     max-width: 1440px;
+    opacity: ${(props) => props.isLoaded ? 1 : 0};
+    max-height: ${(props) => props.isLoaded ? '100%' : '0px'};
+    margin: ${(props) => props.isLoaded ? '60px auto' : '0'};
 
     @media (max-width: 1599px) {
         max-width: 1140px;
@@ -75,15 +77,14 @@ const ProductsWrapper = styled.div`
         padding: 0 5%;
     }
 `
-const ProductsList = styled.div`
 
-`
 const Spinner = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
+    min-height: 450px;
     opacity: 0.9;
 
     > img {

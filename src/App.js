@@ -3,9 +3,9 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 // components
 import HomePage from '@components/homePage/HomePage.js'
-import NewsListPage from '@components/news/NewsListPage.js'
-import NewsPage from '@components/news/elements/NewsPage.js'
-import ProductsListPage from '@components/products/ProductsListPage.js'
+import News from '@components/news/News.js'
+import NewsSinglePage from '@components/news/NewsSinglePage.js'
+import Products from '@components/products/Products.js'
 import AboutUs from '@components/aboutUs/AboutUs.js'
 import Contacts from '@components/contacts/Contacts.js'
 import PrivacyPolicy from '@privacyPolicy/PrivacyPolicy.js'
@@ -24,9 +24,9 @@ export default function App() {
             <ContentStyled>
                 <Routes>
                     <Route exact path="/" element={<HomePage />} />
-                    <Route exact path="/news" element={<NewsListPage />} />
-                    <Route exact path="/news/:name" element={<NewsPage />} />
-                    <Route exact path="/products" element={<ProductsListPage />} />
+                    <Route exact path="/news" element={<News />} />
+                    <Route exact path="/news/:name" element={<NewsSinglePage />} />
+                    <Route exact path="/products" element={<Products />} />
                     <Route exact path="/aboutus" element={<AboutUs />} />
                     <Route exact path="/contacts" element={<Contacts />} />
                     <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
