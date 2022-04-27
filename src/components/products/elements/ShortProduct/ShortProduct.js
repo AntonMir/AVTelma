@@ -1,6 +1,6 @@
 // components
-import Illustration from '@products/elements/ShortProduct/Illustration.js'
-import Text from '@products/elements/ShortProduct/Text.js'
+import Illustration from '@products/elements/shortProduct/Illustration.js'
+import Text from '@products/elements/shortProduct/Text.js'
 // img
 import LeftTopCornerImg from '@img/products/LTCorner.svg'
 import RightBotCornerImg from '@img/products/RBCorner.svg'
@@ -16,7 +16,7 @@ export default function SeparateProduct(props) {
     const product = config.appLang === 'RU'
         ? {
             title: props.product.attributes.Title_RU,
-            text: props.product.attributes.Text_RU,
+            description: props.product.attributes.Text_RU,
             img: config.serverUrl + props.product.attributes.Img_RU.data.attributes.url,
             UID: props.product.attributes.UID,
             url: props.product.attributes.URL_RU,
@@ -24,7 +24,7 @@ export default function SeparateProduct(props) {
         }
         : {
             title: props.product.attributes.Title_EN,
-            text: props.product.attributes.Text_EN,
+            description: props.product.attributes.Text_EN,
             img: config.serverUrl + props.product.attributes.Img_EN.data.attributes.url,
             UID: props.product.attributes.UID,
             url: props.product.attributes.URL_EN,
@@ -37,7 +37,7 @@ export default function SeparateProduct(props) {
 
             <ShortProductStyled>
                 <Illustration img={product.img} />
-                <Text title={product.title} text={product.text} url={product.url} btn={product.btn} />
+                <Text title={product.title} text={product.description} url={product.url} btn={product.btn} />
             </ShortProductStyled>
 
             <RightBotCorner src={RightBotCornerImg}></RightBotCorner>

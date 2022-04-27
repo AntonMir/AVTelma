@@ -73,6 +73,10 @@ const Link = styled.a`
     background-color: #fff;
     color: #000;
 
+    :hover {
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);        
+    }
+
     @media (min-width: 1920px) {
         font-size: 23px;
     } 

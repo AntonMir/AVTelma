@@ -26,6 +26,8 @@ export default function Illustration(props) {
 }
 
 const IllustrationStylde = styled.div`
+    display: flex;
+    flex-direction: column;
     max-width: 48%;
     margin: auto;
 
@@ -44,5 +46,6 @@ const Img = styled.img`
 
 const Spinner = styled.img`
     height: auto;
-    width: 100%;
+    width: 40%;
+    margin: 80px auto;
 `

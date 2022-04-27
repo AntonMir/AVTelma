@@ -1,6 +1,8 @@
 // img
 import background from '@img/homePage/greeting/greetingBackground.webp'
 import logo from '@img/homePage/greeting/greetingLogo.svg'
+// Link
+import { HashLink } from 'react-router-hash-link'
 // config
 import config from '@config/config.js'
 // style
@@ -28,7 +30,7 @@ export default function Greeting() {
                     <Logo src={logo} alt="logo.webp" />
                     <Slogan>{text.slogan[0]} <span>{text.slogan[1]}</span> {text.slogan[2]}</Slogan>
                     <Description>{text.description}</Description>
-                    <Btn>{text.btn}</Btn>
+                    <Btn to="/aboutus">{text.btn}</Btn>
                 </Content>
             </Background>
         </GreetingStyled>
@@ -38,6 +40,7 @@ export default function Greeting() {
 const GreetingStyled = styled.div`
     height: 100vh;
     width: 100%;
+    margin-top: -80px;
 
     @media (max-width: 600px) {
         height: 75vh;
@@ -121,15 +124,19 @@ const Description = styled.p`
     }
 `
 
-const Btn = styled.button`
-    padding: calc(0.6vw + 10px) calc(1.4vw + 22px) calc(0.6vw + 11px);
+const Btn = styled(HashLink)`
+    padding: calc(0.5vw + 9px) calc(1.4vw + 22px) calc(0.5vw + 10px);
     font-size: calc(0.5vw + 15px);
     background-color: #13A9D1;
     border: none;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.75);
     color: #fff;
     align-self: flex-start;
     margin-top: 10px;
+
+    :hover {
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+    }
 
     @media (min-width: 1920px) {
         font-size: 23px;

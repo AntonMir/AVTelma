@@ -84,7 +84,6 @@ const HeaderStyled = styled.div`
     transition: all 1.3s ease;
     transform: translateY(-50px);
     opacity: 0;
-    
 `
 
 const HeaderElWrapper = styled.div`
