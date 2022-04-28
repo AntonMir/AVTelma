@@ -1,6 +1,6 @@
 // components
-import Illustration from '@news/elements/shortNews/Illustration.js'
-import Text from '@news/elements/shortNews/Text.js'
+import Illustration from '@news/newsSinglePage/elements/otherNews/elements/shortNews/Illustration.js'
+import Text from '@news/newsSinglePage/elements/otherNews/elements/shortNews/Text.js'
 // config
 import config from '@config/config.js'
 // style
@@ -43,7 +43,7 @@ export default function ShortNews(props) {
 }
 
 const ShortNewsWrapper = styled.div`
-    margin: 50px 0;
+    margin: 0 0 50px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;

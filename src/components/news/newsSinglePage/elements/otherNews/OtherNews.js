@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-//components
-import ShortProduct from '@products/elements/shortProduct/ShortProduct.js'
-import Head from '@products/elements/Head.js'
-// img 
+// components
+import ShortNews from '@news/newsSinglePage/elements/otherNews/elements/shortNews/ShortNews.js'
+import Head from '@news/newsSinglePage/elements/otherNews/elements/Head.js'
+// img
 import spinner from '@img/global/spinner.svg'
 // hooks
 import { useHttp } from '@hooks/http.hook.js'
@@ -12,55 +12,56 @@ import config from '@config/config.js'
 import styled from 'styled-components'
 
 
-export default function Products() {
-    const [products, setProducts] = useState({});
+export default function OtherNews() {
+    const [news, setNews] = useState({});
     const [repitRequest, setRepitRequest] = useState(false)
 
-    // используем наш хук для запроса продуктов
+    // используем наш хук для запроса новостей
     const { request, isLoaded } = useHttp()
 
-    // Получаем Продукты
+    // При первой отрисовке получаем Новости
     useEffect(() => {
-        async function getProducts() {
+        async function getNews() {
             try {
-                // получаем список продуктов и закидываем в state
+                // получаем список новостей и закидываем в state
                 const data = await request({
-                    url: `${config.serverUrl}/api/products?populate=*&sort=publishedAt:desc`
+                    url: `${config.serverUrl}/api/news?populate=*&filters[UID][$ne]=${localStorage.getItem('newsPageUID')}`
                 })
-                setProducts(data.data)
+                setNews(data.data)
             } catch (error) {
                 setTimeout(() => setRepitRequest(!repitRequest), 2000)
             }
         }
-        getProducts()
+        getNews()
     }, [request, repitRequest]);
 
+
     return (
-        <ProductsWrapper>
+        <NewsWrapper>
+
             <Head />
 
-            <ProductsList isLoaded={isLoaded}>
-                {(products && products.length > 0) && products.map(product => {
-                    return <ShortProduct key={product.id} product={product} />
+            <NewsList isLoaded={isLoaded}>
+                {(news && news.length > 0) && news.map(post => {
+                    return <ShortNews key={post.id} post={post} isLoaded={isLoaded} />
                 })}
-            </ProductsList>
+            </NewsList>
 
             {!isLoaded && <Spinner><img src={spinner} alt="spinner" /></Spinner>}
-
-        </ProductsWrapper>
+        </NewsWrapper>
     );
 }
 
-const ProductsWrapper = styled.div`
-   position: relative;
-   margin-top: -80px;
+const NewsWrapper = styled.div`
+    position: relative;
+    margin-top: calc(3vw + 20px);
 `
 
-const ProductsList = styled.div`
+const NewsList = styled.div`
     max-width: 1440px;
     opacity: ${(props) => props.isLoaded ? 1 : 0};
     max-height: ${(props) => props.isLoaded ? '100%' : '0px'};
-    margin: ${(props) => props.isLoaded ? '60px auto' : '0'};
+    margin: ${(props) => props.isLoaded ? '0 auto' : '0'};
 
     @media (max-width: 1599px) {
         max-width: 1140px;
@@ -76,10 +77,6 @@ const ProductsList = styled.div`
 
     @media (max-width: 800px) {
         padding: 0 2%;
-    }
-
-    @media (max-width: 600px) {
-        padding: 0 5%;
     }
 `
 

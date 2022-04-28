@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 // components
 import HomePage from '@components/homePage/HomePage.js'
 import News from '@components/news/News.js'
-import NewsSinglePage from '@components/news/NewsSinglePage.js'
+import NewsSinglePage from '@components/news/newsSinglePage/NewsSinglePage.js'
 import Products from '@components/products/Products.js'
 import AboutUs from '@components/aboutUs/AboutUs.js'
 import Contacts from '@components/contacts/Contacts.js'

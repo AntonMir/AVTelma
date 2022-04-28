@@ -1,7 +1,4 @@
-
 import { useState } from 'react'
-// link 
-import { HashLink } from 'react-router-hash-link';
 // img
 import spinner from '@img/global/spinner.svg'
 // style
@@ -21,7 +18,7 @@ export default function Illustration(props) {
     return (
         <IllustrationStylde>
             <RightTopRec isLoaded={isLoaded} />
-            <CustomLink onClick={changeNewsPostUIDHandler} to={UID + '#top'}>
+            <a onClick={changeNewsPostUIDHandler} href={window.location.origin + '/news/' + UID + '#top'}>
                 <Img
                     onLoad={() => setIsLoaded(true)}
                     src={img}
@@ -30,10 +27,10 @@ export default function Illustration(props) {
                     isLoaded={isLoaded}
                 />
                 {!isLoaded && <Spinner src={spinner} alt="spinner" loading='lazy' />}
-            </CustomLink>
+            </a>
 
             <LeftBotRec isLoaded={isLoaded} />
-        </IllustrationStylde>
+        </IllustrationStylde >
     );
 }
 
@@ -54,11 +51,6 @@ const IllustrationStylde = styled.div`
         max-width: 100%;
         padding: 2% 2% 0.1%;
     }
-`
-
-
-const CustomLink = styled(HashLink)`
-
 `
 
 const Img = styled.img`

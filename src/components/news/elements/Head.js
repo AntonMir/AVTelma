@@ -58,9 +58,22 @@ const HeadWrapper = styled.div`
     margin: 0 auto;
     max-width: 1440px;
 
+    @media (max-width: 1599px) {
+        max-width: 1140px;
+    }
+
+    @media (max-width: 1200px) {
+        max-width: 960px;
+    }
+
+    @media (max-width: 991px) {
+        max-width: 750px;
+    }
+
     @media (max-width: 600px) {
         padding-left: 5vw;
     }
+
 `
 
 const BlackRectangle = styled.div`

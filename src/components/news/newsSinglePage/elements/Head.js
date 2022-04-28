@@ -9,11 +9,14 @@ import config from '@config/config.js'
 import styled from 'styled-components'
 
 
-export default function Head() {
+export default function Head(props) {
+
+    const title = config.appLang === 'RU'
+        ? props.post.attributes.Title_RU
+        : props.post.attributes.Title_EN
 
     return (
         <HeadBackground>
-
             <HeadWrapper>
                 <BlackRectangle>
                     <HeadContent>
@@ -24,13 +27,15 @@ export default function Head() {
                                     : 'Главная'
                                 }
                             </HashLink>
-                            <img src={arrow} />
-                            <h6 to="/#services">
+                            <img src={arrow} alt="img" />
+                            <HashLink to="/news">
                                 {config.appLang === 'EN'
                                     ? 'News'
                                     : 'Новости'
                                 }
-                            </h6>
+                            </HashLink>
+                            <img src={arrow} alt="img" />
+                            <h6>{title}</h6>
                         </UserPosNav>
                         <Title>
                             {config.appLang === 'EN'
@@ -40,9 +45,7 @@ export default function Head() {
                         </Title>
                     </HeadContent>
                 </BlackRectangle>
-
             </HeadWrapper>
-
         </HeadBackground>
     );
 }
@@ -53,28 +56,13 @@ const HeadBackground = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: 80px;
 `
 
 const HeadWrapper = styled.div`
-    margin: 0 10vw;
-`
-
-const BlackRectangle = styled.div`
-    display: inline-block;
-    background: rgba(1, 39, 49, 0.5);
-    padding: 0 5% 0 3.5%;
-`
-
-const HeadContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: calc(7vw + 100px);
-    min-height: 150px;
-    max-height: 256px;
-    // width: 20%;
-    color: #fff;
-
+    padding-left: 1vw;
+    margin: 0 auto;
+    max-width: 1440px;
 
     @media (max-width: 1599px) {
         max-width: 1140px;
@@ -88,10 +76,42 @@ const HeadContent = styled.div`
         max-width: 750px;
     }
 
-    @media (max-width: 800px) {
-        padding: 0 5%;
+    @media (max-width: 600px) {
+        padding-left: 5vw;
     }
-   
+
+`
+
+const BlackRectangle = styled.div`
+    display: inline-block;
+    background: rgba(1, 39, 49, 0.5);
+    padding: 0 5% 0 3.5%;
+
+    @media (max-width: 768px) {
+        padding: 0 7vw 0 5.5vw;
+    }
+`
+
+const HeadContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(7vw + 100px);
+    min-height: 150px;
+    max-height: 256px;
+    color: #fff;
+
+    @media (max-width: 1599px) {
+        max-width: 1140px;
+    }
+
+    @media (max-width: 1200px) {
+        max-width: 960px;
+    }
+
+    @media (max-width: 991px) {
+        max-width: 750px;
+    }
 `
 
 const UserPosNav = styled.div`

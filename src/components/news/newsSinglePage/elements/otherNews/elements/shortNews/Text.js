@@ -1,7 +1,5 @@
 // img 
 import arrow from '@img/homePage/products/arrow.svg'
-// Link
-import { HashLink } from 'react-router-hash-link'
 // style
 import styled from 'styled-components'
 
@@ -31,9 +29,17 @@ export default function Text(props) {
                 <p>{parsedDate}</p>
                 <p>{tag}</p>
             </Head>
-            <Title onClick={changeNewsPostUIDHandler} to={UID + '#top'}>{title}</Title>
+            <Title
+                onClick={changeNewsPostUIDHandler}
+                href={window.location.origin + '/news/' + UID + '#top'}
+            >
+                {title}
+            </Title>
             <Description>{description}</Description>
-            <Link onClick={changeNewsPostUIDHandler} to={UID + '#top'}>
+            <Link
+                onClick={changeNewsPostUIDHandler}
+                href={window.location.origin + '/news/' + UID + '#top'}
+            >
                 <p>{btn}</p>
                 <img src={arrow} alt="img" />
             </Link>
@@ -82,7 +88,7 @@ const Head = styled.div`
     }
 `
 
-const Title = styled(HashLink)`
+const Title = styled.a`
     font-size: calc(1.5vw + 15px);
     font-weight: 700;
     color: #0095B6;
@@ -119,7 +125,7 @@ const Description = styled.p`
         font-size: calc(1.1vw + 11px);
     }
 `
-const Link = styled(HashLink)`
+const Link = styled.a`
     display: flex;
     align-items: center;
     font-size: calc(0.4vw + 13px);

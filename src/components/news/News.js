@@ -74,6 +74,10 @@ const NewsList = styled.div`
     }
 
     @media (max-width: 800px) {
+        padding: 0 2%;
+    }
+    
+    @media (max-width: 600px) {
         padding: 0 5%;
     }
 `
