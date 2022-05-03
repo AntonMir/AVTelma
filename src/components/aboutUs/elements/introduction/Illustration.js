@@ -16,7 +16,7 @@ export default function Illustration() {
         <IllustrationWrapper>
             <ImgWrapper>
                 <Img
-                    onLoad={() => setIsLoaded(true)}
+                    onLoad={() => setIsLoaded(false)}
                     src={notebook}
                     alt="img"
                     isLoaded={isLoaded}
@@ -71,6 +71,6 @@ const Infographics = styled.img`
 
 const Spinner = styled.img`
     height: auto;
-    width: 40%;
+    width: 100%;
     margin: 80px auto;
 `

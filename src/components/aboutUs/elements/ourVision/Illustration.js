@@ -95,6 +95,6 @@ const InfographicsMonitor = styled.img`
 
 const Spinner = styled.img`
     height: auto;
-    width: 40%;
+    width: 100%;
     margin: 80px auto;
 `
