@@ -1,5 +1,5 @@
 const config = {
-    appLang: 'RU',
+    appLang: 'EN',
     appName: 'Avtelma',
     serverUrl: 'http://192.168.1.2:1337',
     // serverUrl: 'https://avtelmavds.space',

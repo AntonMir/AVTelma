@@ -16,7 +16,7 @@ export default function Illustration() {
         <IllustrationWrapper>
             <ImgWrapper>
                 <Img
-                    onLoad={() => setIsLoaded(false)}
+                    onLoad={() => setIsLoaded(true)}
                     src={notebook}
                     alt="img"
                     isLoaded={isLoaded}
