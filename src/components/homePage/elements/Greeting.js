@@ -1,6 +1,7 @@
 // img
 import background from '@img/homePage/greeting/greetingBackground.webp'
 import logo from '@img/homePage/greeting/greetingLogo.svg'
+import chipNeon from '@img/homePage/greeting/chipNeon.svg'
 // Link
 import { HashLink } from 'react-router-hash-link'
 // config
@@ -32,6 +33,7 @@ export default function Greeting() {
                     <Description>{text.description}</Description>
                     <Btn to="/aboutus">{text.btn}</Btn>
                 </Content>
+                <ChipNeon src={chipNeon} alt='img' />
             </Background>
         </GreetingStyled>
     );
@@ -52,6 +54,7 @@ const GreetingStyled = styled.div`
 `
 
 const Background = styled.div`
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,4 +144,19 @@ const Btn = styled(HashLink)`
     @media (min-width: 1920px) {
         font-size: 23px;
     } 
+`
+
+const ChipNeon = styled.img`
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    max-height: calc(20% + 15vw);
+    width: auto;
+
+    @media (max-width: 991px) {
+        left: auto;
+        right: 0;
+        opacity: 0.5;
+        transform: scale(-1, 1);
+    }
 `

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 //components
-import ShortProduct from '@shortProduct/ShortProduct.js'
-import Head from '@homePage/elements/products/elements/Head.js'
+import ShortNews from '@shortNews/ShortNews.js'
+import Head from '@homePage/elements/news/elements/Head.js'
 // img 
 import spinner from '@img/global/spinner.svg'
 // hooks
@@ -12,51 +12,51 @@ import config from '@config/config.js'
 import styled from 'styled-components'
 
 
-export default function Products() {
-    const [products, setProducts] = useState({});
+export default function News() {
+    const [news, setNews] = useState({});
     const [repitRequest, setRepitRequest] = useState(false)
 
-    // используем наш хук для запроса продуктов
+    // используем наш хук для запроса новостей
     const { request, isLoaded } = useHttp()
 
-    // Получаем Продукты
+    // Получаем все новости
     useEffect(() => {
-        async function getProducts() {
+        async function getNews() {
             try {
                 // получаем список продуктов и закидываем в state
                 const data = await request({
-                    url: `${config.serverUrl}/api/products?populate=*&pagination[limit]=2&sort=publishedAt:desc`
+                    url: `${config.serverUrl}/api/news?populate=*&pagination[limit]=2&sort=publishedAt:desc`
                 })
-                setProducts(data.data)
+                setNews(data.data)
             } catch (error) {
                 setTimeout(() => setRepitRequest(!repitRequest), 2000)
             }
         }
-        getProducts()
+        getNews()
     }, [request, repitRequest]);
 
     return (
-        <ProductsWrapper>
+        <NewsWrapper>
 
             <Head />
 
-            <ProductsList style={{ opacity: isLoaded ? 1 : 0 }}>
-                {(products && products.length > 0) && products.map(product => {
-                    return <ShortProduct key={product.id} product={product} />
+            <NewsList style={{ opacity: isLoaded ? 1 : 0 }}>
+                {(news && news.length > 0) && news.map(post => {
+                    return <ShortNews key={post.id} post={post} isLoaded={isLoaded} />
                 })}
-            </ProductsList>
+            </NewsList>
 
             {!isLoaded && <Spinner><img src={spinner} alt="spinner" /></Spinner>}
 
 
 
-        </ProductsWrapper>
+        </NewsWrapper>
     );
 }
 
-const ProductsWrapper = styled.div`
+const NewsWrapper = styled.div`
     position: relative;
-    margin: 0 auto calc(1.5vw + 15px);
+    margin: 0 auto calc(4.5vw + 45px);
     max-width: 1440px;
 
     @media (max-width: 1599px) {
@@ -75,7 +75,7 @@ const ProductsWrapper = styled.div`
         padding: 0 5%;
     }
 `
-const ProductsList = styled.div`
+const NewsList = styled.div`
 
 `
 const Spinner = styled.div`

@@ -1,6 +1,7 @@
 import React from 'react'
 // img
 import logoGif from '@img/footer/logoGif.gif'
+import chipNeon from '@img/footer/chipNeon.svg'
 // components
 import Logo from '@footer/elements/Logo.js'
 import Contacts from '@footer/elements/Contacts.js'
@@ -20,6 +21,7 @@ export default function Footer() {
             <ContactsWrapper>
                 <Img src={logoGif} alt="logoGif" />
             </ContactsWrapper>
+            <ChipNeon src={chipNeon} alt='img' />
         </FooterStyled>
     )
 }
@@ -84,4 +86,12 @@ const Img = styled.img`
     @media (max-width: 450px) {
         height: 100px;
     }
+`
+
+const ChipNeon = styled.img`
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    max-height: calc(15% + 10vw);
+    width: auto;
 `

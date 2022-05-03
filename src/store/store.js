@@ -7,6 +7,7 @@ import config from '@config/config.js'
 export const initialState = {
     pageLanguage: localStorage.getItem('currentLang') || config.defaultLang,
     burgerMenuIsOpen: false,
+    currentOpenNews: localStorage.getItem('newsPageUID') || ''
 }
 
 export const store = createStore(

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 // components
 import HomePage from '@components/homePage/HomePage.js'
 import News from '@components/news/News.js'
-import NewsSinglePage from '@components/news/newsSinglePage/NewsSinglePage.js'
+import NewsSinglePage from '@components/newsSinglePage/NewsSinglePage.js'
 import Products from '@components/products/Products.js'
 import AboutUs from '@components/aboutUs/AboutUs.js'
 import Contacts from '@components/contacts/Contacts.js'
@@ -41,5 +41,15 @@ export default function App() {
 
 const ContentStyled = styled.div`
     min-height: 600px;
+
+    @media (min-height: 1000px) {
+        min-height: 1000px;
+    }
+    @media (min-height: 1300px) {
+        min-height: 1300px;
+    }
+    @media (min-height: 1400px) {
+        min-height: 1400px;
+    }
 `
 

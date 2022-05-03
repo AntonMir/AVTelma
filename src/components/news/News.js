@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 // components
-import ShortNews from '@news/elements/shortNews/ShortNews.js'
+import ShortNews from '@shortNews/ShortNews.js'
 import Head from '@news/elements/Head.js'
 // img
 import spinner from '@img/global/spinner.svg'

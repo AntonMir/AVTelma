@@ -1,5 +1,6 @@
 import { CHANGE_LANGUAGE } from '@store/actions.js'
 import { CHANGE_HEADER_BURGER_MENU } from '@store/actions.js'
+import { CHANGE_CURRENT_OPEN_NEWS } from '@store/actions.js'
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -12,6 +13,11 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 burgerMenuIsOpen: action.status,
+            }
+        case CHANGE_CURRENT_OPEN_NEWS:
+            return {
+                ...state,
+                currentOpenNews: action.status,
             }
 
         default:
