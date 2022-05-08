@@ -16,7 +16,7 @@ export const useHttp = () => {
         const data = await response.json()
 
         if (!response.ok) {
-            throw new Error(data.message || 'Что-то пошло не так')
+            setError(data.message || 'Что-то пошло не так')
         }
 
         return data
@@ -50,7 +50,6 @@ export const useHttp = () => {
         } catch (error) {
             setStatus('error')
             setError(error.message)
-            throw error
         }
     }, [])
 

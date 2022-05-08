@@ -67,44 +67,22 @@ const NavList = styled.ul`
 `
 
 const NavEl = styled.li`
-    position: relative;
     display: flex;
     align-items: center;
-    padding: 0;
-    margin: 0 15px;
+    padding: 0 15px;
+    margin: 0;
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
     height: 80px;
 
-    &:before,
-    &:after {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        border-bottom: 7px solid #091f2c;
-        content: '';
-        transition: all 0.3s ease;
-    }
-    &:hover {
-        &:before,
-        &:after {
-            width: 60%;
-            border-bottom: 7px solid #00b5d6;
-        }
-        &:after {
-            transform: translateX(-98%);
-        }
+    :hover {
+        background-color: #0095B6;
     }
 
     @media (max-width: 991px) {
-        margin: 0;
-        height: 40px;
-
-        &:before,
-        &:after {
-            display: none;
+        :hover {
+            background-color: #fff;
         }
     }
 `
@@ -114,15 +92,15 @@ const CustomLink = styled(HashLink)`
     align-items: center;
     height: 100%;
     color: #fff;
-    font-weight: 400;
     cursor: pointer;
     font-size: calc(0.6vw + 6px);
 
     @media (max-width: 1130px) {
-        font-size: 13px;
+        font-size: calc(0.8vw + 8px);
     }
 
     @media (max-width: 991px) {
+        font-size: calc(1.4vw + 14px);
         color: #000;
     }
 `

@@ -1,7 +1,7 @@
 // Link
 import { HashLink } from 'react-router-hash-link'
 // img
-import logo from '@img/footer/logo.png'
+import logo from '@img/footer/logo.svg'
 // styled
 import styled from 'styled-components'
 
@@ -14,20 +14,16 @@ export default function Logo() {
 }
 
 const LogoStyled = styled(HashLink)`
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 1% 4% 0;
     cursor: auto;
-    max-height: 33px;
 
-    @media (max-width: 450px) {
-        margin-top: 40px;
+    @media (max-width: 991px) {
+        margin-bottom: 5%;
     }
 `
 
 const Img = styled.img`
-    width: auto;
-    max-height: 100%;
+    width: 100%;
+    height: auto;
+    max-width: 250px;
     cursor: pointer;
 `

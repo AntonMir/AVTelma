@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 // components
-import ShortContact from '@footer/elements/ShortContact.js'
+import ShortContact from '@contactUs/elements/contacts/elements/ShortContact.js'
 // img
+import chipNeon from '@img/contacts/chipNeon.svg'
 import spinner from '@img/global/spinner.svg'
 // hooks
 import { useHttp } from '@hooks/http.hook.js'
@@ -10,7 +11,7 @@ import config from '@config/config.js'
 // styled
 import styled from 'styled-components'
 
-export default function Contacts() {
+export default function Text() {
     const [contactsList, setContactsList] = useState({});
     const [repitRequest, setRepitRequest] = useState(false)
 
@@ -32,9 +33,9 @@ export default function Contacts() {
     }, [request, repitRequest]);
 
     return (
-        <ContactsComponent>
+        <TextContent>
             <Title>
-                {config.appLang === 'RU' ? 'Контакты' : 'Contact us'}
+                {config.appLang === 'RU' ? 'Контакты' : 'Contacts'}
             </Title>
             <ContactsList isLoaded={isLoaded}>
                 {(contactsList && contactsList.length > 0) && contactsList.map(contact => {
@@ -44,26 +45,38 @@ export default function Contacts() {
 
             {!isLoaded && <Spinner><img src={spinner} alt="spinner" /></Spinner>}
 
-        </ContactsComponent>
+            <ChipNeon src={chipNeon} alt='img' />
+        </TextContent>
     )
 }
 
-const ContactsComponent = styled.div`
+const TextContent = styled.div`
+    position: relative; 
+    flex: 1;
+    padding: calc(2.5vw + 20px) 0 0 calc(2vw + 15px);
+    margin-top: 5%;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    min-height: 13vw;
+    
+
+    @media (min-width: 1920px) {
+        padding: 70px 0 0 70px;
+    }
+
     @media (max-width: 991px) {
-        margin-top: 7%;
+        padding: calc(2vw + 15px);
     }
 `
 
 
 const Title = styled.p`
+    margin: 0 0 calc(1vw + 20px) 0;
     line-height: 41px;
-    color: #ccc;
-    font-size: calc(0.3vw + 14px);
-    letter-spacing: -0.02em;
-    margin: 0 0 10px;
+    font-size: calc(1.9vw + 19px);
+    font-weight: 700;
 
     @media (min-width: 1920px) {
-        font-size: 18px;
+        font-size: 56px;
     }
     
     @media (max-width: 380px) {
@@ -74,6 +87,18 @@ const Title = styled.p`
 const ContactsList = styled.div`
     opacity: ${(props) => props.isLoaded ? 1 : 0};
     max-height: ${(props) => props.isLoaded ? '100%' : '0px'};
+`
+
+const ChipNeon = styled.img`
+    height: 35%;
+    width: auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    @media (max-width: 991px) {
+        display: none;
+    }
 `
 
 const Spinner = styled.div`

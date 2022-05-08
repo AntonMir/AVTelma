@@ -11,7 +11,7 @@
             "@newsSinglePage/*": ["./src/components/newsSinglePage"],
             "@products/*": ["./src/components/products"],
             "@shortProduct/*": ["./src/components/shortProduct"],
-            "@contacts/*": ["./src/components/contacts"],
+            "@contactUs/*": ["./src/components/contactUs"],
             "@homePage/*": ["./src/components/homePage"],
             "@aboutus/*": ["./src/components/aboutUs"],
             "@img/*": ["./assets/img"],

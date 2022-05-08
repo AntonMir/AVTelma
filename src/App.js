@@ -7,7 +7,7 @@ import News from '@components/news/News.js'
 import NewsSinglePage from '@components/newsSinglePage/NewsSinglePage.js'
 import Products from '@components/products/Products.js'
 import AboutUs from '@components/aboutUs/AboutUs.js'
-import Contacts from '@components/contacts/Contacts.js'
+import ContactUs from '@components/contactUs/ContactUs.js'
 import PrivacyPolicy from '@privacyPolicy/PrivacyPolicy.js'
 import Header from '@components/header/Header.js'
 import Footer from '@components/footer/Footer.js'
@@ -28,7 +28,7 @@ export default function App() {
                     <Route exact path="/news/:name" element={<NewsSinglePage />} />
                     <Route exact path="/products" element={<Products />} />
                     <Route exact path="/aboutus" element={<AboutUs />} />
-                    <Route exact path="/contacts" element={<Contacts />} />
+                    <Route exact path="/contacts" element={<ContactUs />} />
                     <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>

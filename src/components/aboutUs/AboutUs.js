@@ -1,7 +1,7 @@
 //components
 import Head from '@aboutus/elements/Head.js'
 import Introduction from '@aboutus/elements/introduction/Introduction.js'
-// import ActivityAreas from '@aboutus/elements/activityAreas/ActivityAreas.js'
+import ActivityAreas from '@aboutus/elements/activityAreas/ActivityAreas.js'
 import Slogan from '@aboutus/elements/Slogan.js'
 import OurVision from '@aboutus/elements/ourVision/OurVision.js'
 import Conclusion from '@aboutus/elements/conclusion/Conclusion.js'
@@ -15,14 +15,13 @@ export default function AboutUs() {
             <Head />
             <Content>
                 <Introduction />
-                {/* <ActivityAreas /> */}
+                <ActivityAreas />
             </Content>
             <Slogan />
             <Content>
                 <OurVision />
                 <Conclusion />
             </Content>
-
         </AboutUsComponent>
     )
 }

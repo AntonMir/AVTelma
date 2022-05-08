@@ -46,7 +46,7 @@ const Title = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 51%;
+    width: 23%;
 
     @media (max-width: 991px) {
         width: auto;
