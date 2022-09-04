@@ -6,12 +6,21 @@ import config from '@config/config.js'
 import styled from 'styled-components'
 
 
-const title = config.appLang === "EN"
-    ? `Our vision`
-    : `Наше видение`
+const title = config.appLang === "RU"
+    ? `Наше видение`
+    : `Our vision`
 
-const text = config.appLang === "EN"
+const text = config.appLang === "RU"
     ? [
+        `В Avtelma мы считаем, что интеграция современных технологий в повседневную 
+        жизнь может значительно повысить качество жизни, а также обеспечить 
+        чувство контроля и безопасности над ней.`,
+        `Именно поэтому в нашей команде есть профессионалы широкого спектра: 
+        от специалистов по телематике, инженеров-электриков, инженеров-программистов 
+        и программистов до узкопрофильных специалистов, таких как радиоинженеры 
+        и специалисты по навигации.`
+    ]
+    : [
         `In Avtelma, we believe that modern technology integration into day-to-day 
             live can greatly increase the quality of life as well as provide feeling 
             of control and security over it.`,
@@ -19,15 +28,6 @@ const text = config.appLang === "EN"
             telematic specialists, electrical engineers software engineers and 
             programmers to narrow-field specialists such as radio-engineers and 
             navigation specialists.`
-    ]
-    : [
-        `В Avtelma мы считаем, что интеграция современных технологий в повседневную 
-            жизнь может значительно повысить качество жизни, а также обеспечить 
-            чувство контроля и безопасности над ней.`,
-        `Именно поэтому в нашей команде есть профессионалы широкого спектра: 
-            от специалистов по телематике, инженеров-электриков, инженеров-программистов 
-            и программистов до узкопрофильных специалистов, таких как радиоинженеры 
-            и специалисты по навигации.`
     ]
 
 

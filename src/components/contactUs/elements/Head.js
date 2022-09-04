@@ -14,16 +14,16 @@ export default function Head() {
         <HeadContent>
             <UserPosNav>
                 <HashLink to="/">
-                    {config.appLang === 'EN'
-                        ? 'Home'
-                        : 'Главная'
+                    {config.appLang === 'RU'
+                        ? 'Главная'
+                        : 'Home'
                     }
                 </HashLink>
                 <img src={arrow} alt="img" />
                 <p>
-                    {config.appLang === 'EN'
-                        ? 'Contact us'
-                        : 'Контакты'
+                    {config.appLang === 'RU'
+                        ? 'Контакты'
+                        : 'Contact us'
                     }
                 </p>
             </UserPosNav>

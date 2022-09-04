@@ -3,17 +3,26 @@ import config from '@config/config.js'
 //styled
 import styled from 'styled-components'
 
+    let title = ''
+    let text = ''
 
-const title = config.appLang === "EN"
-    ? `Areas of activity of the company`
-    : `Сферы деятельности компании`
-
-const text = config.appLang === "EN"
-    ? `In Avtelma, we develop modern solutions for various life spheres. 
-        From city-wide smart traffic to personal SmartHome improvements.`
-    : `В Avtelma мы разрабатываем современные решения для различных сфер жизни: 
-        от интеллектуального трафика по всему городу до улучшений персонального умного дома.`
-
+switch(config.appLang){
+    case 'RU':
+        text = `В Avtelma мы разрабатываем современные решения для различных сфер жизни: 
+                от интеллектуального трафика по всему городу до улучшений персонального умного дома.`
+        title = `Сферы деятельности компании`
+        break
+    case 'AM':
+        text = `In Avtelam, we develop modern solutions for various life spheres. 
+                From city-wide smart traffic to personal SmartHome improvements.`
+        title = `Areas of activity of the company`
+        break
+    default:
+        text = `In Avtelma, we develop modern solutions for various life spheres. 
+                From city-wide smart traffic to personal SmartHome improvements.`
+        title = `Areas of activity of the company`
+        break
+}
 
 export default function Head() {
 

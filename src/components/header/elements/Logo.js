@@ -4,10 +4,13 @@ import { HashLink } from 'react-router-hash-link'
 // img
 import logo from '@img/header/logo.svg'
 import logoBlack from '@img/header/logoBlack.svg'
+import avtelam_AM from '@img/header/avtelam_AM.svg'
 // redux
 import { store } from '@store/store.js'
 // styles
 import styled from 'styled-components'
+// config
+import config from '../../../config/config'
 
 export default function Logo() {
     const [burgerMenuIsOpen, setBurgerMenuIsOpen] = useState(false)
@@ -18,6 +21,14 @@ export default function Logo() {
         }, 300)
     })
 
+    if(config.appLang === 'AM') {
+        return (
+            <CustomLink to="/#top" smooth>
+                <IMG src={avtelam_AM} alt="logo" />
+            </CustomLink>
+        )
+    }
+    
     return (
         <CustomLink to="/#top" smooth>
             <IMG src={burgerMenuIsOpen ? logoBlack : logo} alt="logo" />

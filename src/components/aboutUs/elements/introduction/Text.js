@@ -5,13 +5,13 @@ import config from '@config/config.js'
 // style
 import styled from 'styled-components'
 
-const text = config.appLang === "EN"
-    ? `With more than five years of experience, AVTELMA has been successfully 
-        developing solutions and providing expertise in various technological 
-        fields such as: automotive telematics, navigation and Internet of Things `
-    : `Обладая более чем пятилетним опытом, AVTELMA успешно разрабатывает решения и
+const text = config.appLang === "RU"
+    ? `Обладая более чем пятилетним опытом, AVTELMA успешно разрабатывает решения и
         предоставляет экспертные знания в различных технологических областях,
         таких как: автомобильная телематика, навигация и Интернет вещей`
+    : `With more than five years of experience, AVTELMA has been successfully 
+        developing solutions and providing expertise in various technological 
+        fields such as: automotive telematics, navigation and Internet of Things `
 
 
 export default function Text() {

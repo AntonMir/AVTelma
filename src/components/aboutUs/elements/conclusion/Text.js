@@ -3,18 +3,18 @@ import config from '@config/config.js'
 // style
 import styled from 'styled-components'
 
-const text = config.appLang === "EN"
+const text = config.appLang === "RU"
     ? [
+        `Мы уверены, что сможем разработать решение независимо от того, какой 
+        набор навыков оно потребует и какие проблемы нам придется преодолеть.`,
+        `Мы работаем вместе, вместе обсуждаем проекты и проблемы и следим за тем, 
+        чтобы каждый голос и мнение были услышаны и оценены.`
+    ]
+    : [
         `We make sure that we can develop a solution no matter what skillset it 
             will require and what challenges we’ll have to overcome.`,
         `We work together, discuss projects and problems together and make 
             sure that every voice and opinion is heard and valued.`
-    ]
-    : [
-        `Мы уверены, что сможем разработать решение независимо от того, какой 
-            набор навыков оно потребует и какие проблемы нам придется преодолеть.`,
-        `Мы работаем вместе, вместе обсуждаем проекты и проблемы и следим за тем, 
-            чтобы каждый голос и мнение были услышаны и оценены.`
     ]
 
 

@@ -114,7 +114,7 @@ const HeaderPopUpWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    flex: ${(props) => `${props.lang === 'EN' ? 0 : 1}`};
+    flex: ${(props) => `${props.lang === 'RU' ? 1 : 0}`};
     height: 100%;
     transition: height 0.3s ease-out, opacity 0.5s ease-out;
 

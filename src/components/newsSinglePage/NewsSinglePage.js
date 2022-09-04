@@ -30,6 +30,7 @@ export default function NewsPage() {
                 const data = await request({
                     url: `${config.serverUrl}/api/news?populate=*&filters[UID][$eq]=${localStorage.getItem('newsPageUID')}`
                 })
+                console.log(data.data)
                 setPost(data.data)
             } catch (error) {
                 setTimeout(() => setRepitRequest(!repitRequest), 2000)

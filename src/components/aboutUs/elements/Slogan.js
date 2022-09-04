@@ -3,14 +3,14 @@ import config from '@config/config.js'
 // style
 import styled from 'styled-components'
 
-const text = config.appLang === "EN"
+const text = config.appLang === "RU"
     ? [
-        `If anything might be improved by modern technological approach – `,
-        `we can make it happen`
-    ]
-    : [
         `Если что–то можно улучшить с помощью современного технологического подхода - `,
         `мы можем это сделать`
+    ]
+    : [
+        `If anything might be improved by modern technological approach – `,
+        `we can make it happen`
     ]
 
 export default function Slogan() {

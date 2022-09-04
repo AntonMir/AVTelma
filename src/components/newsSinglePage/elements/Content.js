@@ -18,6 +18,7 @@ export default function Content(props) {
             description: props.post.attributes.Description_RU,
             text: props.post.attributes.Full_Text_RU,
             img: config.serverUrl + props.post.attributes.Img_RU.data.attributes.url,
+            videoUrl: props.post.attributes.Video_RU,
             UID: props.post.attributes.UID,
             tag: props.post.attributes.Tag,
             createdAt: props.post.attributes.createdAt,
@@ -30,6 +31,7 @@ export default function Content(props) {
             description: props.post.attributes.Description_EN,
             text: props.post.attributes.Full_Text_EN,
             img: config.serverUrl + props.post.attributes.Img_EN.data.attributes.url,
+            videoUrl: props.post.attributes.Video_EN,
             UID: props.post.attributes.UID,
             tag: props.post.attributes.Tag,
             createdAt: props.post.attributes.createdAt,
@@ -67,6 +69,14 @@ export default function Content(props) {
             />
             {!isLoaded && <Spinner src={spinner} alt="spinner" loading='lazy' />}
             <Text>{post.text}</Text>
+            <Video 
+                src={post.videoUrl}
+                style={{display: post.videoUrl.length > 0 ? '' : 'none'}}
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+            >
+            </Video>
         </NewsContent>
     );
 }
@@ -139,11 +149,18 @@ const Description = styled.p`
     @media (max-width: 600px) {
         font-size: calc(1.1vw + 11px);
     }
+    `
+const Img = styled.img`
+    height: auto;
+    width: 100%;
+    opacity: ${(props) => props.isLoaded ? 1 : 0};
+    max-height: ${(props) => props.isLoaded ? '100%' : '0px'};
+    margin: ${(props) => props.isLoaded ? 'auto' : '0'};
 `
 
 const Text = styled.p`
     font-size: calc(0.7vw + 7px);
-    margin: calc(1.5vw + 10px) 0 0;
+    margin: calc(1.5vw + 10px) 0;
 
     @media screen and (min-width: 1920px) {
         font-size: 22px;
@@ -157,13 +174,12 @@ const Text = styled.p`
     }
 `
 
-const Img = styled.img`
-    height: auto;
+const Video = styled.iframe`
     width: 100%;
-    opacity: ${(props) => props.isLoaded ? 1 : 0};
-    max-height: ${(props) => props.isLoaded ? '100%' : '0px'};
-    margin: ${(props) => props.isLoaded ? 'auto' : '0'};
+    height: auto;
+    min-height: calc(100px + 30vw);
 `
+
 const Spinner = styled.img`
     height: auto;
     width: 7%;

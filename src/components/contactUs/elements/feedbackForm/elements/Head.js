@@ -4,15 +4,15 @@ import config from '@config/config.js'
 import styled from 'styled-components'
 
 
-const title = config.appLang === "EN"
-    ? `Contact us`
-    : `Форма для обратной связи`
+const title = config.appLang === "RU"
+    ? `Форма для обратной связи`
+    : `Contact us`
 
-const text = config.appLang === "EN"
-    ? `If you have additional questions or suggestions about out product, please 
-        do not hesitate to inquire by e-mail: our team of experts will answer all your questions`
-    : `Если у вас остались вопросы или предложения, вы можете нам написать и мы 
+const text = config.appLang === "RU"
+    ? `Если у вас остались вопросы или предложения, вы можете нам написать и мы 
         с удовольствием ответим на ваши вопросы:`
+    : `If you have additional questions or suggestions about out product, please 
+        do not hesitate to inquire by e-mail: our team of experts will answer all your questions`
 
 
 export default function Head() {

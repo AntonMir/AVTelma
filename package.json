@@ -22,8 +22,6 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "dev": "react-app-rewired start",
-    "install": "npm i",
     "build": "react-app-rewired build"
   },
   "eslintConfig": {

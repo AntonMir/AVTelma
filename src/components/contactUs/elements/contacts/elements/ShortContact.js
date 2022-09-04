@@ -5,15 +5,28 @@ import styled from 'styled-components'
 
 export default function ShortContact(props) {
 
-    const contact = config.appLang === 'EN'
-        ? {
-            img: config.serverUrl + props.contact.attributes.Img.data.attributes.url,
-            value: props.contact.attributes.Value_EN,
-        }
-        : {
-            img: config.serverUrl + props.contact.attributes.Img.data.attributes.url,
-            value: props.contact.attributes.Value_RU,
-        }
+    let contact = {}
+
+    switch(config.appLang){
+        case 'RU':
+            contact = {
+                img: config.serverUrl + props.contact.attributes.Img.data.attributes.url,
+                value: props.contact.attributes.Value_RU,
+            }
+            break
+        case 'AM':
+            contact = {
+                img: config.serverUrl + props.contact.attributes.Img.data.attributes.url,
+                value: props.contact.attributes.Value_AM,
+            }
+            break
+        default:
+            contact = {
+                img: config.serverUrl + props.contact.attributes.Img.data.attributes.url,
+                value: props.contact.attributes.Value_EN,
+            }
+            break
+    }
 
 
     return (

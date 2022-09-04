@@ -12,34 +12,9 @@ import config from '@config/config.js'
 //styled
 import styled from 'styled-components'
 
-const data = config.appLang === "EN"
+const data = config.appLang === "RU"
+   
     ? [
-        {
-            id: 0,
-            title: `SmartInsurance`,
-            text: `Pay-as-you go and Pay-how-you-drive insurance approach in a single device`,
-            img: smartInsurance
-        },
-        {
-            id: 1,
-            title: `SmartWatch`,
-            text: `Activity monitor`,
-            img: smartWatch
-        },
-        {
-            id: 2,
-            title: `Indoor Positioning system for SmartHomes`,
-            text: `Bring your personality in your smarthome and make it recognize you`,
-            img: smartHome
-        },
-        {
-            id: 3,
-            title: `SmartTraffic`,
-            text: `Improve your driving experience by precise knowledge of traffic lights system`,
-            img: smartTraffic
-        }
-    ]
-    : [
         {
             id: 0,
             title: `SmartInsurance`,
@@ -62,6 +37,31 @@ const data = config.appLang === "EN"
             id: 3,
             title: `SmartTraffic`,
             text: `Улучшите свой опыт вождения за счет точного знания системы светофоров`,
+            img: smartTraffic
+        }
+    ] : [
+        {
+            id: 0,
+            title: `SmartInsurance`,
+            text: `Pay-as-you go and Pay-how-you-drive insurance approach in a single device`,
+            img: smartInsurance
+        },
+        {
+            id: 1,
+            title: `SmartWatch`,
+            text: `Activity monitor`,
+            img: smartWatch
+        },
+        {
+            id: 2,
+            title: `Indoor Positioning system for SmartHomes`,
+            text: `Bring your personality in your smarthome and make it recognize you`,
+            img: smartHome
+        },
+        {
+            id: 3,
+            title: `SmartTraffic`,
+            text: `Improve your driving experience by precise knowledge of traffic lights system`,
             img: smartTraffic
         }
     ]

@@ -3,20 +3,20 @@ import config from '@config/config.js'
 // style
 import styled from 'styled-components'
 
-const text = config.appLang === "EN"
+const text = config.appLang === "RU"
     ? [
-        `Modern technology integration into day-to-day live can greatly `,
-        `increase the quality of life `,
-        `as well as provide feeling `,
-        `of control and security `,
-        `over it.`
-    ]
-    : [
         `Интеграция современных технологий в повседневную жизнь может значительно `,
         `повысить качество жизни `,
         `, а также обеспечить чувство `,
         `контроля и безопасности `,
         `над ней.`
+    ]
+    : [
+        `Modern technology integration into day-to-day live can greatly `,
+        `increase the quality of life `,
+        `as well as provide feeling `,
+        `of control and security `,
+        `over it.`
     ]
 
 export default function Slogan() {

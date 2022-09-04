@@ -1,6 +1,7 @@
 // img
 import background from '@img/homePage/greeting/greetingBackground.webp'
 import logo from '@img/homePage/greeting/greetingLogo.svg'
+import greetingLogo_AM from '@img/homePage/greeting/greetingLogo_AM.svg'
 import chipNeon from '@img/homePage/greeting/chipNeon.svg'
 // Link
 import { HashLink } from 'react-router-hash-link'
@@ -9,16 +10,33 @@ import config from '@config/config.js'
 // style
 import styled from 'styled-components'
 
-const text = config.appLang === "EN"
-    ? {
-        slogan: ['We', 'Connect', 'Everything'],
-        description: 'Avtelma develops Telematics and IoT solutions for any imaginable sphere of life',
-        btn: 'Read more '
-    }
-    : {
-        slogan: ['Мы', 'Соединяем', 'Все'],
-        description: 'Avtelma разрабатывает телематические и IoT-решения для любой мыслимой сферы жизни.',
-        btn: 'Подробнее'
+    let text = {}
+
+    switch(config.appLang) {
+        // РОССИЯ
+        case 'RU':
+            text = {
+                slogan: ['Мы', 'Соединяем', 'Все'],
+                description: 'Avtelma разрабатывает телематические и IoT-решения для любой мыслимой сферы жизни.',
+                btn: 'Подробнее'
+            }
+            break;
+        // АРМЕНИЯ
+        case 'AM':
+            text = {
+                slogan: ['We', 'Connect', 'Everything'],
+                description: 'Avtelam develops Telematics and IoT solutions for any imaginable sphere of life',
+                btn: 'Read more '
+            }
+            break;
+        // АНГЛИЙСКИЙ
+        default:
+            text = {
+                slogan: ['We', 'Connect', 'Everything'],
+                description: 'Avtelma develops Telematics and IoT solutions for any imaginable sphere of life',
+                btn: 'Read more '
+            }
+            break;
     }
 
 
@@ -28,7 +46,7 @@ export default function Greeting() {
         <GreetingStyled>
             <Background>
                 <Content>
-                    <Logo src={logo} alt="logo.webp" />
+                    <Logo src={config.appLang === 'AM' ? greetingLogo_AM : logo} alt="logo.webp" />
                     <Slogan>{text.slogan[0]} <span>{text.slogan[1]}</span> {text.slogan[2]}</Slogan>
                     <Description>{text.description}</Description>
                     <Btn to="/aboutus">{text.btn}</Btn>
