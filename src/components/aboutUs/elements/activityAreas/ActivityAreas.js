@@ -7,64 +7,73 @@ import smartWatch from '@img/aboutUs/activityAreas/smart_watch_infographics.svg'
 import smartHome from '@img/aboutUs/activityAreas/smart_home_infographics.svg'
 import smartTraffic from '@img/aboutUs/activityAreas/smart_traffic_infographics.svg'
 import center from '@img/aboutUs/activityAreas/center.svg'
+import center_AM from '@img/aboutUs/activityAreas/center_AM.svg'
 // config
 import config from '@config/config.js'
 //styled
 import styled from 'styled-components'
 
-const data = config.appLang === "RU"
-   
-    ? [
-        {
-            id: 0,
-            title: `SmartInsurance`,
-            text: `Подход к страхованию с оплатой по ходу движения и оплатой по мере движения в одном устройстве`,
-            img: smartInsurance
-        },
-        {
-            id: 1,
-            title: `SmartWatch`,
-            text: `Монитор активности`,
-            img: smartWatch
-        },
-        {
-            id: 2,
-            title: `Indoor Positioning system for SmartHomes`,
-            text: `Привнесите свою индивидуальность в свой smarthome и заставьте его узнать вас`,
-            img: smartHome
-        },
-        {
-            id: 3,
-            title: `SmartTraffic`,
-            text: `Улучшите свой опыт вождения за счет точного знания системы светофоров`,
-            img: smartTraffic
-        }
-    ] : [
-        {
-            id: 0,
-            title: `SmartInsurance`,
-            text: `Pay-as-you go and Pay-how-you-drive insurance approach in a single device`,
-            img: smartInsurance
-        },
-        {
-            id: 1,
-            title: `SmartWatch`,
-            text: `Activity monitor`,
-            img: smartWatch
-        },
-        {
-            id: 2,
-            title: `Indoor Positioning system for SmartHomes`,
-            text: `Bring your personality in your smarthome and make it recognize you`,
-            img: smartHome
-        },
-        {
-            id: 3,
-            title: `SmartTraffic`,
-            text: `Improve your driving experience by precise knowledge of traffic lights system`,
-            img: smartTraffic
-        }
-    ]
+
+    let data = []
+
+    switch(config.appLang){
+    case 'RU':
+        data = [
+            {
+                id: 0,
+                title: `SmartInsurance`,
+                text: `Подход к страхованию с оплатой по ходу движения и оплатой по мере движения в одном устройстве`,
+                img: smartInsurance
+            },
+            {
+                id: 1,
+                title: `SmartWatch`,
+                text: `Монитор активности`,
+                img: smartWatch
+            },
+            {
+                id: 2,
+                title: `Indoor Positioning system for SmartHomes`,
+                text: `Привнесите свою индивидуальность в свой smarthome и заставьте его узнать вас`,
+                img: smartHome
+            },
+            {
+                id: 3,
+                title: `SmartTraffic`,
+                text: `Улучшите свой опыт вождения за счет точного знания системы светофоров`,
+                img: smartTraffic
+            }
+        ]
+        break
+    default:
+        data = [
+            {
+                id: 0,
+                title: `SmartInsurance`,
+                text: `Pay-as-you go and Pay-how-you-drive insurance approach in a single device`,
+                img: smartInsurance
+            },
+            {
+                id: 1,
+                title: `SmartWatch`,
+                text: `Activity monitor`,
+                img: smartWatch
+            },
+            {
+                id: 2,
+                title: `Indoor Positioning system for SmartHomes`,
+                text: `Bring your personality in your smarthome and make it recognize you`,
+                img: smartHome
+            },
+            {
+                id: 3,
+                title: `SmartTraffic`,
+                text: `Improve your driving experience by precise knowledge of traffic lights system`,
+                img: smartTraffic
+            }
+        ]
+        break
+    }
 
 
 export default function ActivityAreas() {
@@ -92,7 +101,7 @@ const Content = styled.div`
     grid-column-gap: 20vw;
     grid-row-gap: calc(450px - 15vw);
 
-    background-image: url(${center});
+    background-image: url(${config.appLang === 'AM' ? center_AM : center});
     background-position: 50% 47%;
     background-repeat: no-repeat;
     background-size: 50%;

@@ -1,5 +1,3 @@
-// config
-import config from '@config/config.js'
 // styled
 import styled from 'styled-components'
 

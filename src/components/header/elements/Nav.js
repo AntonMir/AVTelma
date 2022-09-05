@@ -82,7 +82,7 @@ const NavEl = styled.li`
 
     @media (max-width: 991px) {
         :hover {
-            background-color: #fff;
+            background-color: rgba(0, 0, 0, 0);
         }
     }
 `

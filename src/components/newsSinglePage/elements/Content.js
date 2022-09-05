@@ -12,32 +12,72 @@ export default function Content(props) {
     const [isLoaded, setIsLoaded] = useState(false);
 
     // Подставляем Title, description и Img в соответствии с установленным языком приложения
-    const post = config.appLang === 'RU'
-        ? {
-            title: props.post.attributes.Title_RU,
-            description: props.post.attributes.Description_RU,
-            text: props.post.attributes.Full_Text_RU,
-            img: config.serverUrl + props.post.attributes.Img_RU.data.attributes.url,
-            videoUrl: props.post.attributes.Video_RU,
-            UID: props.post.attributes.UID,
-            tag: props.post.attributes.Tag,
-            createdAt: props.post.attributes.createdAt,
-            updatedAt: props.post.attributes.updatedAt,
-            publishedAt: props.post.attributes.publishedAt,
-            btn: 'Показать полностью'
-        }
-        : {
-            title: props.post.attributes.Title_EN,
-            description: props.post.attributes.Description_EN,
-            text: props.post.attributes.Full_Text_EN,
-            img: config.serverUrl + props.post.attributes.Img_EN.data.attributes.url,
-            videoUrl: props.post.attributes.Video_EN,
-            UID: props.post.attributes.UID,
-            tag: props.post.attributes.Tag,
-            createdAt: props.post.attributes.createdAt,
-            updatedAt: props.post.attributes.updatedAt,
-            publishedAt: props.post.attributes.publishedAt,
-            btn: 'Read more'
+        let post = {}
+
+        try {
+            switch(config.appLang) {
+                case 'RU':
+                    post = {
+                        title: props.post.attributes.Title_RU,
+                        description: props.post.attributes.Description_RU,
+                        text: props.post.attributes.Full_Text_RU,
+                        img: config.serverUrl + props.post.attributes.Img_RU.data.attributes.url,
+                        videoUrl: props.post.attributes.Video_RU,
+                        UID: props.post.attributes.UID,
+                        tag: props.post.attributes.Tag,
+                        createdAt: props.post.attributes.createdAt,
+                        updatedAt: props.post.attributes.updatedAt,
+                        publishedAt: props.post.attributes.publishedAt,
+                        btn: 'Показать полностью'
+                    }
+                    break
+                case 'AM':
+                    post = {
+                        title: props.post.attributes.Title_AM,
+                        description: props.post.attributes.Description_AM,
+                        text: props.post.attributes.Full_Text_AM,
+                        img: config.serverUrl + props.post.attributes.Img_AM.data.attributes.url,
+                        videoUrl: props.post.attributes.Video_AM,
+                        UID: props.post.attributes.UID,
+                        tag: props.post.attributes.Tag,
+                        createdAt: props.post.attributes.createdAt,
+                        updatedAt: props.post.attributes.updatedAt,
+                        publishedAt: props.post.attributes.publishedAt,
+                        btn: 'Read more'
+                    }
+                    break
+                default:
+                    // Если конфиг не указан либо EN
+                    post = {
+                        title: props.post.attributes.Title_EN,
+                        description: props.post.attributes.Description_EN,
+                        text: props.post.attributes.Full_Text_EN,
+                        img: config.serverUrl + props.post.attributes.Img_EN.data.attributes.url,
+                        videoUrl: props.post.attributes.Video_EN,
+                        UID: props.post.attributes.UID,
+                        tag: props.post.attributes.Tag,
+                        createdAt: props.post.attributes.createdAt,
+                        updatedAt: props.post.attributes.updatedAt,
+                        publishedAt: props.post.attributes.publishedAt,
+                        btn: 'Read more'
+                    }
+                    break
+            } 
+        } catch {
+            // если ошибка получения данных с сервера
+            post = {
+                title: props.post.attributes.Title_EN,
+                description: props.post.attributes.Description_EN,
+                text: props.post.attributes.Full_Text_EN,
+                img: config.serverUrl + props.post.attributes.Img_EN.data.attributes.url,
+                videoUrl: props.post.attributes.Video_EN,
+                UID: props.post.attributes.UID,
+                tag: props.post.attributes.Tag,
+                createdAt: props.post.attributes.createdAt,
+                updatedAt: props.post.attributes.updatedAt,
+                publishedAt: props.post.attributes.publishedAt,
+                btn: 'Read more'
+            }
         }
 
     function parseDate(dateFromDB) {

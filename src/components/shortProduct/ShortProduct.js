@@ -13,16 +13,45 @@ import styled from 'styled-components'
 export default function SeparateProduct(props) {
 
     // Подставляем Title, description и Img в соответствии с установленным языком приложения
-    const product = config.appLang === 'RU'
-        ? {
-            title: props.product.attributes.Title_RU,
-            description: props.product.attributes.Text_RU,
-            img: config.serverUrl + props.product.attributes.Img_RU.data.attributes.url,
-            UID: props.product.attributes.UID,
-            url: props.product.attributes.URL_RU,
-            btn: 'Подробнее'
-        }
-        : {
+    let product = {}
+
+    try {
+        switch(config.appLang) {
+            case 'RU':
+                product = {
+                    title: props.product.attributes.Title_RU,
+                    description: props.product.attributes.Text_RU,
+                    img: config.serverUrl + props.product.attributes.Img_RU.data.attributes.url,
+                    UID: props.product.attributes.UID,
+                    url: props.product.attributes.URL_RU,
+                    btn: 'Подробнее'
+                }
+                break
+            case 'AM':
+                product = {
+                    title: props.product.attributes.Title_AM,
+                    description: props.product.attributes.Text_AM,
+                    img: config.serverUrl + props.product.attributes.Img_AM.data.attributes.url,
+                    UID: props.product.attributes.UID,
+                    url: props.product.attributes.URL_AM,
+                    btn: 'Read more'
+                }
+                break
+            default:
+                // Если конфиг не указан либо EN
+                product = {
+                    title: props.product.attributes.Title_EN,
+                    description: props.product.attributes.Text_EN,
+                    img: config.serverUrl + props.product.attributes.Img_EN.data.attributes.url,
+                    UID: props.product.attributes.UID,
+                    url: props.product.attributes.URL_EN,
+                    btn: 'Read more'
+                }
+                break
+        } 
+    } catch {
+        // если ошибка получения данных с сервера
+        product = {
             title: props.product.attributes.Title_EN,
             description: props.product.attributes.Text_EN,
             img: config.serverUrl + props.product.attributes.Img_EN.data.attributes.url,
@@ -30,6 +59,7 @@ export default function SeparateProduct(props) {
             url: props.product.attributes.URL_EN,
             btn: 'Read more'
         }
+    }
 
     return (
         <ShortProductWrapper>

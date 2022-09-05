@@ -12,10 +12,16 @@ import styled from 'styled-components'
 
 export default function Head(props) {
 
-    let title = config.appLang === 'RU'
-        ? props.post.attributes.Title_RU
-        : props.post.attributes.Title_EN
+    let title
 
+    switch(config.appLang){
+    case 'RU':
+        title = props.post.attributes.Title_RU
+        break
+    default:
+        title = props.post.attributes.Title_EN
+        break
+    }
 
     return (
         <HeadBackground>
@@ -24,25 +30,25 @@ export default function Head(props) {
                     <HeadContent>
                         <UserPosNav>
                             <HashLink to="/">
-                                {config.appLang === 'EN'
-                                    ? 'Home'
-                                    : 'Главная'
+                                {config.appLang === 'RU'
+                                    ? 'Главная'
+                                    : 'Home'
                                 }
                             </HashLink>
                             <img src={arrow} alt="img" />
                             <HashLink to="/news">
-                                {config.appLang === 'EN'
-                                    ? 'News'
-                                    : 'Новости'
+                                {config.appLang === 'RU'
+                                    ? 'Новости'
+                                    : 'News'
                                 }
                             </HashLink>
                             <img src={arrow} alt="img" />
                             <h6>{title}</h6>
                         </UserPosNav>
                         <Title>
-                            {config.appLang === 'EN'
-                                ? 'Company News'
-                                : 'Новости компании'
+                            {config.appLang === 'RU'
+                                ? 'Новости компании'
+                                : 'Company News'
                             }
                         </Title>
                     </HeadContent>

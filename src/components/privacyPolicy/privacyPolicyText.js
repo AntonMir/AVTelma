@@ -4,10 +4,31 @@ import config from '@config/config.js'
 /**
  * BASE TEXT CONFIG
  */
-const mainUrl = config.appLang === 'EN' ? 'https://avtelma.com' : "https://avtelma.ru"
-const privacyPolicyUrl = config.appLang === 'EN' ? "https://avtelma.com/privacy-policy" : "https://avtelma.ru/privacy-policy"
-const organizationName = "Avtelma"
-const organizationEmail = config.appLang === 'EN' ? "support@avtelma.com" : "support@avtelma.ru"
+let mainUrl = ''
+let privacyPolicyUrl = ''
+let organizationName = ''
+let organizationEmail = ''
+
+switch(config.appLang){
+    case 'RU':
+        mainUrl = "https://avtelma.ru"
+        privacyPolicyUrl = "https://avtelma.ru/privacy-policy"
+        organizationName = "Avtelma"
+        organizationEmail = "support@avtelma.ru"
+        break
+    case 'AM':
+        mainUrl = "https://avtel.am"
+        privacyPolicyUrl = "https://avtel.am/privacy-policy"
+        organizationName = "Avtelam"
+        organizationEmail = "info@avtel.am"
+        break
+    default:
+        mainUrl = "https://avtelma.com"
+        privacyPolicyUrl = "https://avtelma.com/privacy-policy"
+        organizationName = "Avtelma"
+        organizationEmail = "support@avtelma.com"
+        break
+}
 
 const privacyPolicy = {
     RU: {

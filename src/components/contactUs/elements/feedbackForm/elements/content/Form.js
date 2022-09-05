@@ -156,7 +156,6 @@ const FormComponent = styled.div`
     align-items: center;
     width: 100%;
     padding: 0;
-    // margin: 50px auto 0;
 
     @media (max-width: 991px) {
         width: 100%;

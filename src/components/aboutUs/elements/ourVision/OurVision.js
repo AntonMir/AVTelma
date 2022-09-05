@@ -6,29 +6,47 @@ import config from '@config/config.js'
 import styled from 'styled-components'
 
 
-const title = config.appLang === "RU"
-    ? `Наше видение`
-    : `Our vision`
+    let title = ''
+    let text = ''
 
-const text = config.appLang === "RU"
-    ? [
-        `В Avtelma мы считаем, что интеграция современных технологий в повседневную 
-        жизнь может значительно повысить качество жизни, а также обеспечить 
-        чувство контроля и безопасности над ней.`,
-        `Именно поэтому в нашей команде есть профессионалы широкого спектра: 
-        от специалистов по телематике, инженеров-электриков, инженеров-программистов 
-        и программистов до узкопрофильных специалистов, таких как радиоинженеры 
-        и специалисты по навигации.`
-    ]
-    : [
-        `In Avtelma, we believe that modern technology integration into day-to-day 
-            live can greatly increase the quality of life as well as provide feeling 
-            of control and security over it.`,
-        `That is why we have a broad-spectrum of professionals in our team, from 
-            telematic specialists, electrical engineers software engineers and 
-            programmers to narrow-field specialists such as radio-engineers and 
-            navigation specialists.`
-    ]
+    switch(config.appLang){
+    case 'RU':
+        text = [
+            `В Avtelma мы считаем, что интеграция современных технологий в повседневную 
+                жизнь может значительно повысить качество жизни, а также обеспечить 
+                чувство контроля и безопасности над ней.`,
+            `Именно поэтому в нашей команде есть профессионалы широкого спектра: 
+                от специалистов по телематике, инженеров-электриков, инженеров-программистов 
+                и программистов до узкопрофильных специалистов, таких как радиоинженеры 
+                и специалисты по навигации.`
+        ]
+        title = `Наше видение`
+        break
+    case 'AM':
+        text = [
+            `In Avtelam, we believe that modern technology integration into day-to-day 
+                live can greatly increase the quality of life as well as provide feeling 
+                of control and security over it.`,
+            `That is why we have a broad-spectrum of professionals in our team, from 
+                telematic specialists, electrical engineers software engineers and 
+                programmers to narrow-field specialists such as radio-engineers and 
+                navigation specialists.`
+        ]
+        title = `Our vision`
+        break
+    default:
+        text = [
+            `In Avtelma, we believe that modern technology integration into day-to-day 
+                live can greatly increase the quality of life as well as provide feeling 
+                of control and security over it.`,
+            `That is why we have a broad-spectrum of professionals in our team, from 
+                telematic specialists, electrical engineers software engineers and 
+                programmers to narrow-field specialists such as radio-engineers and 
+                navigation specialists.`
+        ]
+        title = `Our vision`
+        break
+    }
 
 
 export default function OurVision() {
@@ -65,7 +83,6 @@ const OurVisionComponent = styled.div`
 
 
 const TextFirst = styled.div`
-    // order: 0;
 `
 
 const Title = styled.h1`

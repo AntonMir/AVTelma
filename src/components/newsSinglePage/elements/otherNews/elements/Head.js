@@ -14,18 +14,18 @@ export default function Head() {
         <HeadStyled>
             <Title>
                 <Text>
-                    {config.appLang === 'EN'
-                        ? 'Other news'
-                        : 'Другие новости'
+                    {config.appLang === 'RU'
+                        ? 'Другие новости'
+                        : 'Other news'
                     }
                 </Text>
                 <BlueRectangle />
             </Title>
             <LinkToProductsPage to="/news">
                 <p>
-                    {config.appLang === 'EN'
-                        ? 'View all'
-                        : 'Все'
+                    {config.appLang === 'RU'
+                        ? 'Все'
+                        : 'View all'
                     }
                 </p>
                 <img src={arrow} alt="img" />

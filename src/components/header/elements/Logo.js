@@ -4,7 +4,8 @@ import { HashLink } from 'react-router-hash-link'
 // img
 import logo from '@img/header/logo.svg'
 import logoBlack from '@img/header/logoBlack.svg'
-import avtelam_AM from '@img/header/avtelam_AM.svg'
+import logo_AM from '@img/header/logo_AM.svg'
+import logoBlack_AM from '@img/header/logoBlack_AM.svg'
 // redux
 import { store } from '@store/store.js'
 // styles
@@ -24,7 +25,7 @@ export default function Logo() {
     if(config.appLang === 'AM') {
         return (
             <CustomLink to="/#top" smooth>
-                <IMG src={avtelam_AM} alt="logo" />
+                <IMG src={burgerMenuIsOpen ? logoBlack_AM : logo_AM} alt="logo" />
             </CustomLink>
         )
     }

@@ -1,17 +1,35 @@
 // img
-import logo from '@img/aboutUs/introduction/logo.svg'
+import logo_STD from '@img/aboutUs/introduction/logo.svg'
+import logo_AM from '@img/aboutUs/introduction/logo_AM.svg'
 // config
 import config from '@config/config.js'
 // style
 import styled from 'styled-components'
 
-const text = config.appLang === "RU"
-    ? `Обладая более чем пятилетним опытом, AVTELMA успешно разрабатывает решения и
-        предоставляет экспертные знания в различных технологических областях,
-        таких как: автомобильная телематика, навигация и Интернет вещей`
-    : `With more than five years of experience, AVTELMA has been successfully 
-        developing solutions and providing expertise in various technological 
-        fields such as: automotive telematics, navigation and Internet of Things `
+
+    let text = ''
+    let logo
+
+    switch(config.appLang){
+    case 'RU':
+        logo = logo_STD
+        text = `Обладая более чем пятилетним опытом, AVTELMA успешно разрабатывает решения и
+                предоставляет экспертные знания в различных технологических областях,
+                таких как: автомобильная телематика, навигация и Интернет вещей`
+        break
+    case 'AM':
+        logo = logo_AM
+        text = `With more than five years of experience, AVTELAM has been successfully 
+                developing solutions and providing expertise in various technological 
+                fields such as: automotive telematics, navigation and Internet of Things`
+        break
+    default:
+        logo = logo_STD
+        text = `With more than five years of experience, AVTELMA has been successfully 
+                developing solutions and providing expertise in various technological 
+                fields such as: automotive telematics, navigation and Internet of Things`
+        break
+    }
 
 
 export default function Text() {
