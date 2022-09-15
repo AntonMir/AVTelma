@@ -10,23 +10,27 @@ const config = {
 export default config
 
 
-// let title = ''
-// let text = ''
+// =================================================================
+// В зависимости от языка страницы изменяем название
+// и описание в index.html
+const appTitle = document.querySelector('.app-title')
+const appIcon = document.querySelector('.app-icon')
+const headDescription = document.querySelector('.head-description')
 
-// switch(config.appLang){
-// case 'RU':
-//     text = `В Avtelma мы разрабатываем современные решения для различных сфер жизни: 
-//             от интеллектуального трафика по всему городу до улучшений персонального умного дома.`
-//     title = `Сферы деятельности компании`
-//     break
-// case 'AM':
-//     text = `In Avtelam, we develop modern solutions for various life spheres. 
-//             From city-wide smart traffic to personal SmartHome improvements.`
-//     title = `Areas of activity of the company`
-//     break
-// default:
-//     text = `In Avtelma, we develop modern solutions for various life spheres. 
-//             From city-wide smart traffic to personal SmartHome improvements.`
-//     title = `Areas of activity of the company`
-//     break
-// }
+switch(config.appLang){
+case 'RU':
+    appTitle.innerHTML = "Автелма"
+    headDescription.content = "Автелма"
+    break
+case 'AM':
+    appTitle.innerHTML = "Avtelam"
+    headDescription.content = "Avtelam"
+    appIcon.href = 'faviconAM.svg'
+    break
+default:
+    appTitle.innerHTML = "Avtelma"
+    headDescription.content = "Avtelma"
+    break
+}
+// =================================================================
+

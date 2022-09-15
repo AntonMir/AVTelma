@@ -28,24 +28,24 @@ export default function Cookies() {
     return (
         <CookiesStyled style={(cookiesСonsent === null && loaded === true) ? showEL : {}}>
             <Text>
-                {config.appLang === 'EN'
-                    ? `This site does not use cookies and services for collecting technical 
-                    data of visitors (data about IP address, location, etc.).`
-                    : `Этот сайт не использует файлы cookies и сервисы сбора технических
+                {config.appLang === 'RU'
+                    ? `Этот сайт не использует файлы cookies и сервисы сбора технических
                     данных посетителей (данные об IP-адресе, местоположении и др.).`
+                    : `This site does not use cookies and services for collecting technical 
+                    data of visitors (data about IP address, location, etc.).`
                 }
             </Text>
             <BtnBlock>
                 <Btn onClick={cookiesСonsentHandler}>
-                    {config.appLang === 'EN'
-                        ? 'Accept'
-                        : 'Принять'
+                    {config.appLang === 'RU'
+                        ? 'Принять'
+                        : 'Accept'
                     }
                 </Btn>
                 <CustomLink onClick={cookiesСonsentHandler} to="/privacy-policy#top">
-                    {config.appLang === 'EN'
-                        ? `Privacy Policy`
-                        : `Политика конфиденциальности`
+                    {config.appLang === 'RU'
+                        ? `Политика конфиденциальности`
+                        : `Privacy Policy`
                     }
                 </CustomLink>
             </BtnBlock>

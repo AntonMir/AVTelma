@@ -17,10 +17,18 @@ const GifComponent = styled.div`
     display: flex;
     margin: 3% 0 1%;
     width: 100%;
+
+    @media (max-width: 991px) {
+        max-height: 131px;
+    }
 `
 
 const Img = styled.img`
     margin: 0 auto;
     height: auto;
     width: calc(10% + 100px);
+
+    @media (max-width: 991px) {
+        max-height: 131px;
+    }
 `

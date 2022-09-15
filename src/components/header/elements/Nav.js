@@ -50,6 +50,8 @@ const NavStyled = styled.div`
     @media (max-width: 991px) {
         margin-top: 80px;
         flex: 0;
+        height: 100%;
+        min-height: 300px;
     }
 `
 
@@ -63,6 +65,8 @@ const NavList = styled.ul`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: 100%;
+        min-height: 300px;
     }
 `
 
