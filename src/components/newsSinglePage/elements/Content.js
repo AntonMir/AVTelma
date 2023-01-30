@@ -12,73 +12,77 @@ export default function Content(props) {
     const [isLoaded, setIsLoaded] = useState(false);
 
     // Подставляем Title, description и Img в соответствии с установленным языком приложения
-        let post = {}
+    let post = {}
 
-        try {
-            switch(config.appLang) {
-                case 'RU':
-                    post = {
-                        title: props.post.attributes.Title_RU,
-                        description: props.post.attributes.Description_RU,
-                        text: props.post.attributes.Full_Text_RU,
-                        img: config.serverUrl + props.post.attributes.Img_RU.data.attributes.url,
-                        videoUrl: props.post.attributes.Video_RU,
-                        UID: props.post.attributes.UID,
-                        tag: props.post.attributes.Tag,
-                        createdAt: props.post.attributes.createdAt,
-                        updatedAt: props.post.attributes.updatedAt,
-                        publishedAt: props.post.attributes.publishedAt,
-                        btn: 'Показать полностью'
-                    }
-                    break
-                case 'AM':
-                    post = {
-                        title: props.post.attributes.Title_AM,
-                        description: props.post.attributes.Description_AM,
-                        text: props.post.attributes.Full_Text_AM,
-                        img: config.serverUrl + props.post.attributes.Img_AM.data.attributes.url,
-                        videoUrl: props.post.attributes.Video_AM,
-                        UID: props.post.attributes.UID,
-                        tag: props.post.attributes.Tag,
-                        createdAt: props.post.attributes.createdAt,
-                        updatedAt: props.post.attributes.updatedAt,
-                        publishedAt: props.post.attributes.publishedAt,
-                        btn: 'Read more'
-                    }
-                    break
-                default:
-                    // Если конфиг не указан либо EN
-                    post = {
-                        title: props.post.attributes.Title_EN,
-                        description: props.post.attributes.Description_EN,
-                        text: props.post.attributes.Full_Text_EN,
-                        img: config.serverUrl + props.post.attributes.Img_EN.data.attributes.url,
-                        videoUrl: props.post.attributes.Video_EN,
-                        UID: props.post.attributes.UID,
-                        tag: props.post.attributes.Tag,
-                        createdAt: props.post.attributes.createdAt,
-                        updatedAt: props.post.attributes.updatedAt,
-                        publishedAt: props.post.attributes.publishedAt,
-                        btn: 'Read more'
-                    }
-                    break
-            } 
-        } catch {
-            // если ошибка получения данных с сервера
-            post = {
-                title: props.post.attributes.Title_EN,
-                description: props.post.attributes.Description_EN,
-                text: props.post.attributes.Full_Text_EN,
-                img: config.serverUrl + props.post.attributes.Img_EN.data.attributes.url,
-                videoUrl: props.post.attributes.Video_EN,
-                UID: props.post.attributes.UID,
-                tag: props.post.attributes.Tag,
-                createdAt: props.post.attributes.createdAt,
-                updatedAt: props.post.attributes.updatedAt,
-                publishedAt: props.post.attributes.publishedAt,
-                btn: 'Read more'
-            }
+    try {
+        switch (config.appLang) {
+            case 'RU':
+                post = {
+                    title: props.post.attributes.Title_RU,
+                    description: props.post.attributes.Description_RU,
+                    text: props.post.attributes.Full_Text_RU,
+                    img: config.serverUrl + props.post.attributes.Img_RU.data.attributes.url,
+                    videoUrl: props.post.attributes.Video_RU,
+                    UID: props.post.attributes.UID,
+                    tag: props.post.attributes.Tag,
+                    createdAt: props.post.attributes.createdAt,
+                    updatedAt: props.post.attributes.updatedAt,
+                    publishedAt: props.post.attributes.publishedAt,
+                    btn: 'Показать полностью',
+                    outerLink: props.post.attributes.Outer_Link
+                }
+                break
+            case 'AM':
+                post = {
+                    title: props.post.attributes.Title_AM,
+                    description: props.post.attributes.Description_AM,
+                    text: props.post.attributes.Full_Text_AM,
+                    img: config.serverUrl + props.post.attributes.Img_AM.data.attributes.url,
+                    videoUrl: props.post.attributes.Video_AM,
+                    UID: props.post.attributes.UID,
+                    tag: props.post.attributes.Tag,
+                    createdAt: props.post.attributes.createdAt,
+                    updatedAt: props.post.attributes.updatedAt,
+                    publishedAt: props.post.attributes.publishedAt,
+                    btn: 'Read more...',
+                    outerLink: props.post.attributes.Outer_Link
+                }
+                break
+            default:
+                // Если конфиг не указан либо EN
+                post = {
+                    title: props.post.attributes.Title_EN,
+                    description: props.post.attributes.Description_EN,
+                    text: props.post.attributes.Full_Text_EN,
+                    img: config.serverUrl + props.post.attributes.Img_EN.data.attributes.url,
+                    videoUrl: props.post.attributes.Video_EN,
+                    UID: props.post.attributes.UID,
+                    tag: props.post.attributes.Tag,
+                    createdAt: props.post.attributes.createdAt,
+                    updatedAt: props.post.attributes.updatedAt,
+                    publishedAt: props.post.attributes.publishedAt,
+                    btn: 'Read more...',
+                    outerLink: props.post.attributes.Outer_Link
+                }
+                break
         }
+    } catch {
+        // если ошибка получения данных с сервера
+        post = {
+            title: props.post.attributes.Title_EN,
+            description: props.post.attributes.Description_EN,
+            text: props.post.attributes.Full_Text_EN,
+            img: config.serverUrl + props.post.attributes.Img_EN.data.attributes.url,
+            videoUrl: props.post.attributes.Video_EN,
+            UID: props.post.attributes.UID,
+            tag: props.post.attributes.Tag,
+            createdAt: props.post.attributes.createdAt,
+            updatedAt: props.post.attributes.updatedAt,
+            publishedAt: props.post.attributes.publishedAt,
+            btn: 'Read more...',
+            outerLink: props.post.attributes.Outer_Link
+        }
+    }
 
     function parseDate(dateFromDB) {
         const parsedDate = new Date(dateFromDB)
@@ -98,7 +102,11 @@ export default function Content(props) {
                 <p>{post.tag}</p>
             </Head>
             <Title>{post.title}</Title>
-            <Description>{post.description}</Description>
+            <Description>
+                <p>{post.description}</p>
+                <a href={post.outerLink}>{post.btn}</a>
+            </Description>
+
 
             <Img
                 onLoad={() => setIsLoaded(true)}
@@ -109,11 +117,11 @@ export default function Content(props) {
             />
             {!isLoaded && <Spinner src={spinner} alt="spinner" loading='lazy' />}
             <Text>{post.text}</Text>
-            <Video 
+            <Video
                 src={post.videoUrl}
-                style={{display: post.videoUrl.length > 0 ? '' : 'none'}}
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                style={{ display: post.videoUrl.length > 0 ? '' : 'none' }}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
             >
             </Video>
@@ -175,7 +183,7 @@ const Title = styled.h1`
     }
 `
 
-const Description = styled.p`
+const Description = styled.div`
     font-size: calc(0.7vw + 7px);
     margin: calc(1vw + 5px) 0 calc(1vw + 15px);
 
@@ -189,7 +197,21 @@ const Description = styled.p`
     @media (max-width: 600px) {
         font-size: calc(1.1vw + 11px);
     }
-    `
+    
+    > p {
+        margin: 0 0 10px 0;
+    }
+
+    > a {
+        cursor: pointer;
+        color: #888;
+
+        :hover {
+            border-bottom: 1px solid #888;
+        }
+    }
+`
+
 const Img = styled.img`
     height: auto;
     width: 100%;
