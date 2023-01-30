@@ -1,5 +1,5 @@
 const config = {
-    appLang: 'AM', // EN RU AM
+    appLang: 'RU', // EN RU AM
     appName: 'Avtelma',
     // serverUrl: 'http://192.168.1.4:1337',
     serverUrl: 'https://avtelmavds.space',
@@ -17,20 +17,20 @@ const appTitle = document.querySelector('.app-title')
 const appIcon = document.querySelector('.app-icon')
 const headDescription = document.querySelector('.head-description')
 
-switch(config.appLang){
-case 'RU':
-    appTitle.innerHTML = "Автелма"
-    headDescription.content = "Автелма"
-    break
-case 'AM':
-    appTitle.innerHTML = "Avtelam"
-    headDescription.content = "Avtelam"
-    appIcon.href = 'faviconAM.svg'
-    break
-default:
-    appTitle.innerHTML = "Avtelma"
-    headDescription.content = "Avtelma"
-    break
+switch (config.appLang) {
+    case 'RU':
+        appTitle.innerHTML = "Автелма"
+        headDescription.content = "Автелма"
+        break
+    case 'AM':
+        appTitle.innerHTML = "Avtelam"
+        headDescription.content = "Avtelam"
+        appIcon.href = 'faviconAM.svg'
+        break
+    default:
+        appTitle.innerHTML = "Avtelma"
+        headDescription.content = "Avtelma"
+        break
 }
 // =================================================================
 

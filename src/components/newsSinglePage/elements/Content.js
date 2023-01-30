@@ -28,7 +28,7 @@ export default function Content(props) {
                     createdAt: props.post.attributes.createdAt,
                     updatedAt: props.post.attributes.updatedAt,
                     publishedAt: props.post.attributes.publishedAt,
-                    btn: 'Показать полностью',
+                    btn: 'Подробнее',
                     outerLink: props.post.attributes.Outer_Link
                 }
                 break
@@ -104,7 +104,7 @@ export default function Content(props) {
             <Title>{post.title}</Title>
             <Description>
                 <p>{post.description}</p>
-                <a href={post.outerLink}>{post.btn}</a>
+                {config.appLang === 'AM' ? <a href={post.outerLink}>{post.btn}</a> : ''}
             </Description>
 
 
